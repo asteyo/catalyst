@@ -155,6 +155,7 @@ class ProfilerCallback(Callback):
             self.profiler.__enter__()
 
     def _exit_profiler(self, runner: IRunner) -> None:
+        print("exb loader key", runner.loader_key)
         loader_key = runner.loader_key
         epoch = runner.stage_epoch_step
 
