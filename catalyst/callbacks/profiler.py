@@ -143,6 +143,7 @@ class ProfilerCallback(Callback):
         return False
 
     def _enter_profiler(self, runner: IRunner) -> None:
+        print("enter loader key", runner.loader_key)
         loader_key = runner.loader_key
         epoch = runner.stage_epoch_step
 
