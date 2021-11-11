@@ -192,7 +192,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
-        print("on_loader_start")
+        print("on_loader_start", runner.loader_key, self.loader_key)
         self._enter_profiler(runner)
 
     def on_loader_end(self, runner: IRunner) -> None:
