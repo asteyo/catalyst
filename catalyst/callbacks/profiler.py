@@ -136,6 +136,7 @@ class ProfilerCallback(Callback):
             print("after", self.loader_key, runner.loader_key)
 
     def _should_use_profiler(self, loader_key: str, epoch: int):
+        print("should use")
         if self.loader_key == loader_key and self.epoch == epoch:
             if self.num_batches is not None:
                 return self.batch_cnt < self.num_batches
@@ -155,7 +156,7 @@ class ProfilerCallback(Callback):
             self.profiler.__enter__()
 
     def _exit_profiler(self, runner: IRunner) -> None:
-        print("exb loader key", runner.loader_key)
+        print("exit loader key", runner.loader_key)
         loader_key = runner.loader_key
         epoch = runner.stage_epoch_step
 
@@ -191,6 +192,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
+        print("on_loader_start")
         self._enter_profiler(runner)
 
     def on_loader_end(self, runner: IRunner) -> None:
@@ -200,6 +202,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
+        print(on_loader_end)
         self._exit_profiler(runner)
 
     def on_batch_start(self, runner: IRunner) -> None:
@@ -209,6 +212,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
+        print("on_batch_start")
         self._enter_profiler(runner)
 
     def on_batch_end(self, runner: IRunner) -> None:
@@ -218,6 +222,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
+        print("on_batch_end")
         if self.profiler is None:
             return
 
