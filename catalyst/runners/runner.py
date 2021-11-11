@@ -309,7 +309,7 @@ class Runner(IRunner):
         if self._profile and not is_callback_exists(ProfilerCallback):
             callbacks["_profile"] = ProfilerCallback(
                 tensorboard_path=os.path.join(self._logdir, "tb_profile"),
-                loader_key="train",
+                loader_key=None,
                 profiler_kwargs={
                     "activities": [
                         torch.profiler.ProfilerActivity.CPU,
