@@ -49,16 +49,16 @@ class ProfilerCallback(Callback):
             from torch.utils.data import DataLoader
 
             from catalyst import dl
-            from catalyst.data import ToTensor
+            from catalyst.contrib.data import ImageToTensor
             from catalyst.contrib.datasets import MNIST
 
             loaders = {
                 "train": DataLoader(
-                    MNIST(os.getcwd(), train=False, download=True, transform=ToTensor()),
+                    MNIST(os.getcwd(), train=False, download=True, transform=ImageToTensor()),
                     batch_size=32,
                 ),
                 "valid": DataLoader(
-                    MNIST(os.getcwd(), train=False, download=True, transform=ToTensor()),
+                    MNIST(os.getcwd(), train=False, download=True, transform=ImageToTensor()),
                     batch_size=32,
                 ),
             }
