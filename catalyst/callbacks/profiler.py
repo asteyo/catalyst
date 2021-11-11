@@ -144,7 +144,7 @@ class ProfilerCallback(Callback):
         return False
 
     def _enter_profiler(self, runner: IRunner) -> None:
-        print("enter loader key", runner.loader_key)
+        print("enter loader key", runner.loader_key, self.loader_key)
         loader_key = runner.loader_key
         epoch = runner.stage_epoch_step
 
@@ -202,7 +202,7 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
-        print(on_loader_end)
+        print("on_loader_end")
         self._exit_profiler(runner)
 
     def on_batch_start(self, runner: IRunner) -> None:
