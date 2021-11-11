@@ -120,6 +120,7 @@ class ProfilerCallback(Callback):
         self.export_stacks_kwargs = export_stacks_kwargs
         self.profiler = None
         self.stats = None
+        print(1111111)
 
     def on_experiment_start(self, runner: IRunner) -> None:
         """
