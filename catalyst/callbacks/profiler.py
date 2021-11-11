@@ -120,7 +120,7 @@ class ProfilerCallback(Callback):
         self.export_stacks_kwargs = export_stacks_kwargs
         self.profiler = None
         self.stats = None
-        print(1111111)
+        print(1111111, self.loader_key, loader_key)
 
     def on_experiment_start(self, runner: IRunner) -> None:
         """
@@ -129,8 +129,11 @@ class ProfilerCallback(Callback):
         Args:
             runner: current runner
         """
+        print("EXPERIMENT START", self.loader_key)
         if self.loader_key is None:
+            print("DEBUFGGGGGGGGG", self.loader_key)
             self.loader_key = runner.loader_key  # use first loader for profile
+            print("after", self.loader_key, runner.loader_key)
 
     def _should_use_profiler(self, loader_key: str, epoch: int):
         if self.loader_key == loader_key and self.epoch == epoch:
